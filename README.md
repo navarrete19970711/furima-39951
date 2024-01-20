@@ -4,10 +4,17 @@
 
 | Column                | Type   | Options                   |
 | --------------------- | ------ | ------------------------- |
-| name                  | string | null: false               |
+| nickname              | string | null: false               |
 | email                 | string | null: false, unique: true |
-| password              | string | null: false               |
-| password_confirmation | string | null: false               |
+| encrypted_password    | string | null: false               |
+| last_name             | string | null: false               |
+| first_name            | string | null: false               |
+| last_name_kana        | string | null: false               |
+| first_name_kana       | string | null: false               |
+| birth_year_id         | string | null: false               |
+| birth_month_id        | string | null: false               |
+| birth_day_id          | string | null: false               |  
+
 
 
 ### Association
@@ -23,6 +30,11 @@
 | name               | string     | null: false                    |
 | price              | string     | null: false                    |
 | comment            | text       | null: false                    |
+| category_id        | references | null: false, foreign_key: true |
+| condition_id       | references | null: false, foreign_key: true |
+| delivery_charge_id | references | null: false, foreign_key: true |
+| prefectures_id     | references | null: false, foreign_key: true |
+| Shipping_days_id   | references | null: false, foreign_key: true |
 | users              | references | null: false, foreign_key: true |
 
 
@@ -38,16 +50,16 @@
 
 ## purchases テーブル
 
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| users               | references | null: false, foreign_key: true |
-| items               | references | null: false, foreign_key: true |
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| user               | references | null: false, foreign_key: true |
+| item               | references | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to :items
-- has_one :delivery_addresses
+- belongs_to :item
+- has_one :delivery_address
 
 
 
@@ -56,9 +68,10 @@
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
 | postcode             | string     | null: false                    |
+| prefectures_id       | references | null: false, foreign_key: true |
 | municipalitiey       | string     | null: false                    |
 | street_address       | string     | null: false                    |
-| building_name        | string     | null: false                    |
+| building_name        | string     |                                |
 | phone_number         | string     | null: false                    |
 | purchase             | references | null: false, foreign_key: true |
 
