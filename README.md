@@ -2,25 +2,23 @@
 
 ## users テーブル
 
-| Column                | Type   | Options                   |
-| --------------------- | ------ | ------------------------- |
-| nickname              | string | null: false               |
-| email                 | string | null: false, unique: true |
-| encrypted_password    | string | null: false               |
-| last_name             | string | null: false               |
-| first_name            | string | null: false               |
-| last_name_kana        | string | null: false               |
-| first_name_kana       | string | null: false               |
-| birth_year_id         | string | null: false               |
-| birth_month_id        | string | null: false               |
-| birth_day_id          | string | null: false               |  
+| Column                | Type    | Options                   |
+| --------------------- | ------- | ------------------------- |
+| nickname              | string  | null: false               |
+| email                 | string  | null: false, unique: true |
+| encrypted_password    | string  | null: false               |
+| last_name             | string  | null: false               |
+| first_name            | string  | null: false               |
+| last_name_kana        | string  | null: false               |
+| first_name_kana       | string  | null: false               |
+| birth_date_id         | integer | null: false               |
 
 
 
 ### Association
 
 - has_many :items
-
+- has_many :purchases
 
 
 ## items テーブル
@@ -28,14 +26,14 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | name               | string     | null: false                    |
-| price              | string     | null: false                    |
+| price              | integer    | null: false                    |
 | comment            | text       | null: false                    |
-| category_id        | references | null: false, foreign_key: true |
-| condition_id       | references | null: false, foreign_key: true |
-| delivery_charge_id | references | null: false, foreign_key: true |
-| prefectures_id     | references | null: false, foreign_key: true |
-| Shipping_days_id   | references | null: false, foreign_key: true |
-| users              | references | null: false, foreign_key: true |
+| category_id        | integer    | null: false, foreign_key: true |
+| condition_id       | integer    | null: false, foreign_key: true |
+| delivery_charge_id | integer    | null: false, foreign_key: true |
+| prefecture_id      | integer    | null: false, foreign_key: true |
+| Shipping_day_id    | integer    | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -58,7 +56,8 @@
 
 ### Association
 
-- belongs_to :item
+- belongs_to :users
+- belongs_to :items
 - has_one :delivery_address
 
 
@@ -68,7 +67,7 @@
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
 | postcode             | string     | null: false                    |
-| prefectures_id       | references | null: false, foreign_key: true |
+| prefectures_id       | integer    | null: false, foreign_key: true |
 | municipalitiey       | string     | null: false                    |
 | street_address       | string     | null: false                    |
 | building_name        | string     |                                |
@@ -91,7 +90,7 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | comment            | text       | null: false                    |
-| items              | references | null: false, foreign_key: true |
+| item               | references | null: false, foreign_key: true |
 
 
 ### Association
