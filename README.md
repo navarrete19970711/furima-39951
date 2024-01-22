@@ -23,17 +23,17 @@
 
 ## items テーブル
 
-| Column             | Type       | Options       |
-| ------------------ | ---------- | ------------- |
-| name               | string     | null: false   |
-| price              | integer    | null: false   |
-| comment            | text       | null: false   |
-| category_id        | integer    | null: false   |
-| condition_id       | integer    | null: false   |
-| delivery_charge_id | integer    | null: false   |
-| prefecture_id      | integer    | null: false   |
-| shipping_day_id    | integer    | null: false   |
-| user               | references | null: false   |
+| Column             | Type       | Options                          |
+| ------------------ | ---------- | -------------------------------- |
+| name               | string     | null: false                      |
+| price              | integer    | null: false                      |
+| comment            | text       | null: false                      |
+| category_id        | integer    | null: false                      |
+| condition_id       | integer    | null: false                      |
+| delivery_charge_id | integer    | null: false                      |
+| prefecture_id      | integer    | null: false                      |
+| shipping_day_id    | integer    | null: false                      |
+| user               | references | null: false, foreign_key: true   |
 
 
 ### Association
@@ -94,4 +94,4 @@
 
 
 ### Association
-- belongs_to :items
+- belongs_to :item
