@@ -40,7 +40,7 @@
 
 - has_many :comments
 - belongs_to :user
-- has_one :item
+- has_one :purchase
 
 
 
