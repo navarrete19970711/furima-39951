@@ -19,11 +19,7 @@ class User < ApplicationRecord
     end
     
     validates :password, { format: { with: VALID_PASSWORD_REGEX, message: 'は半角英数字の混合である必要があります' } }
-    validates :email, { format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false } }
     validates :nickname
     validates :birth_date
   end
-
-  has_many :items
-  has_many :purchases
 end
