@@ -103,7 +103,6 @@ RSpec.describe Item, type: :model do
       it 'priceが全角数字では登録できない' do
         @item.price = '１００００'
         @item.valid?
-        binding.pry
         expect(@item.errors.full_messages).to include ("Price is not a number")
       end
       it 'ユーザーが紐付いていなければ登録できない' do
