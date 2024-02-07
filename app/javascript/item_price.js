@@ -1,6 +1,6 @@
-const priceInput = document.getElementById("item-price");
+const priceInput = document.getElementById('turbo:load', item-price");
 
-priceInput.addEventListener('load', "input", () => {
+priceInput.addEventListener("input", () => {
   const inputValue = priceInput.value;
   const addTaxDom = document.getElementById("add-tax-price");
     addTaxDom.innerHTML = Math.floor(priceInput.value / 10)
