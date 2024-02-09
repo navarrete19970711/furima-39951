@@ -124,9 +124,9 @@
             <%# //商品が売れていればsold outを表示しましょう %>
             </div>
             <div class="item-info">
-              <h3 class="item-name"><%= @item.name %></h3>
+              <h3 class="item-name"><%= "商品名" %></h3>
               <div class="item-price">
-                <span><%= @item.price %>円<br><%= item.delivery_charge.name %></span>
+                <span><%= "商品価格" %>円<br><%= "配送料負担" %></span>
                 <div class="star-btn">
                   <%= image_tag "star.png", class:"star-icon" %>
                   <span class="star-count">0</span>
