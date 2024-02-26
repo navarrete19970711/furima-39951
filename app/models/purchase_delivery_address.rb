@@ -1,6 +1,6 @@
 class PurchaseDeliveryAddress
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :municipality, :street_address, :building_name, :phone_number
+  attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :municipality, :street_address, :building_name, :phone_number, :token
 
   validates :prefecture_id, numericality: {other_than: 0, message: "can't be blank"}
 
@@ -11,6 +11,7 @@ class PurchaseDeliveryAddress
     validates :municipality
     validates :street_address
     validates :phone_number, format: { with: /\A[0-9]{11}\z/, message: "is invalid"}
+    validates :token
   end
 
   def save
