@@ -2,7 +2,6 @@ class PurchaseDeliveryAddress
   include ActiveModel::Model
   attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :municipality, :street_address, :building_name, :phone_number, :token
 
-  validates :prefecture_id, numericality: {other_than: 0, message: "can't be blank"}
 
   with_options presence: true do
     validates :item_id
@@ -13,6 +12,9 @@ class PurchaseDeliveryAddress
     validates :phone_number, format: { with: /\A[0-9]{10,11}\z/, message: "is invalid"}
     validates :token
   end
+
+  validates :prefecture_id, numericality: {other_than: 1, message: "can't be blank"}
+
 
   def save
     purchase = Purchase.create(user_id: user_id, item_id: item_id)
