@@ -16,13 +16,15 @@ ja:
         image: 商品画像
         explain: 商品の説明
         price: 販売価格
-
-
-  activemodel:
-    attributes:
-      item:
         category: カテゴリー
         condition: 商品の状態
         delivery_charge: 配送料の負担
         prefecture: 発送元の地域
         shipping_day: 発送までの日数
+
+
+
+  activemodel:
+    attributes:
+      purchase_delivery_address:
+        
